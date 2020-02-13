@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBot", "TradeBot\TradeBot.csproj", "{709E219A-5313-4B36-929B-5F930D39975E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBot", "TradeBot\TradeBot.csproj", "{709E219A-5313-4B36-929B-5F930D39975E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBot.Tests", "TradeBot.Tests\TradeBot.Tests.csproj", "{339001EF-D8F8-4482-ACFC-3E0CD7572113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBot.Tests", "TradeBot.Tests\TradeBot.Tests.csproj", "{339001EF-D8F8-4482-ACFC-3E0CD7572113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokerConsole", "..\BrokerConsole\BrokerConsole\BrokerConsole.csproj", "{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{339001EF-D8F8-4482-ACFC-3E0CD7572113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{339001EF-D8F8-4482-ACFC-3E0CD7572113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{339001EF-D8F8-4482-ACFC-3E0CD7572113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

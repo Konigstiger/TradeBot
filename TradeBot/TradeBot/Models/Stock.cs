@@ -11,11 +11,37 @@ namespace TradeBot.Models
     /// </summary>
     public class Stock
     {
-        public string ticker = string.Empty;
-        public string company = string.Empty;
-        public string market = string.Empty;
-        public float last_closing_price = 0;
-        public float daily_variation = 0;
+    /*
+    {
+      "cantidad": 319.0000,
+      "comprometido": 0.0000,
+      "puntosVariacion": -7.25000000,
+      "variacionDiaria": -5.93,
+      "ultimoPrecio": 115.00000000,
+      "ppc": 130.420,
+      "gananciaPorcentaje": -11.82,
+      "gananciaDinero": -4919.00,
+      "valorizado": 36685.000000000000,
+      "titulo": {
+        "simbolo": "GGAL",
+        "descripcion": "Grupo Financiero Galicia",
+        "pais": "argentina",
+        "mercado": "bcba",
+        "tipo": "ACCIONES",
+        "plazo": "t0",
+        "moneda": "peso_Argentino"
+      }
+    },
+    */
+
+        // TODO: make these properties, not fields.
+        public string ticker = string.Empty;    // titulo.simbolo
+        public string company = string.Empty;   // titulo.descripcion
+        public string market = string.Empty;    // titulo.mercado
+        public float last_closing_price = 0;    // ultimoPrecio
+        public float daily_variation = 0;       // variacionDiaria
+        public string currency = "ARS";         // titulo.moneda
+        public string country = "ar";           // titulo.pais
 
         public Stock()
         {

@@ -12,6 +12,7 @@ namespace TradeBot.Models
     {
         public static string NASDAQ = "National Association of Securities Dealers Automated Quotation";
         public static string NYSE = "New York Security Exchange";
+        public static string BCBA = "Bolsa de Comercio de Buenos Aires";
 
     }
 }
