@@ -1524,21 +1524,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {}
         }
       },
-      "Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/2.1.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "[2.3.19, 3.0.0)",
-          "Microsoft.Rest.ClientRuntime.Azure": "[3.3.19, 4.0.0)",
-          "Newtonsoft.Json": "10.0.3",
-          "System.Net.Http": "4.3.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Azure.CognitiveServices.Language.LUIS.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Azure.CognitiveServices.Language.LUIS.dll": {}
-        }
-      },
       "Microsoft.Bot.Builder/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -1552,23 +1537,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Bot.Builder.dll": {}
-        }
-      },
-      "Microsoft.Bot.Builder.AI.Luis/4.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime": "2.1.0",
-          "Microsoft.Bot.Builder": "4.7.0",
-          "Microsoft.Bot.Configuration": "4.7.0",
-          "Microsoft.Bot.Schema": "4.7.0",
-          "Newtonsoft.Json": "12.0.3",
-          "SourceLink.Create.CommandLine": "2.8.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Bot.Builder.AI.Luis.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Bot.Builder.AI.Luis.dll": {}
         }
       },
       "Microsoft.Bot.Builder.Dialogs/4.7.0": {
@@ -1586,26 +1554,6 @@
           "lib/netstandard2.0/Microsoft.Bot.Builder.Dialogs.dll": {}
         }
       },
-      "Microsoft.Bot.Builder.Integration.AspNet.Core/4.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Hosting.Abstractions": "2.1.0",
-          "Microsoft.AspNetCore.Mvc.Core": "2.1.0",
-          "Microsoft.AspNetCore.Mvc.Formatters.Json": "2.1.0",
-          "Microsoft.Bot.Builder": "4.7.0",
-          "Microsoft.Bot.Configuration": "4.7.0",
-          "Microsoft.Extensions.Logging": "2.1.0",
-          "Microsoft.Net.Http.Headers": "2.1.0",
-          "Newtonsoft.Json": "12.0.3",
-          "SourceLink.Create.CommandLine": "2.8.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Bot.Builder.Integration.AspNet.Core.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Bot.Builder.Integration.AspNet.Core.dll": {}
-        }
-      },
       "Microsoft.Bot.Builder.Testing/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -1619,20 +1567,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Bot.Builder.Testing.dll": {}
-        }
-      },
-      "Microsoft.Bot.Configuration/4.7.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "10.0.3",
-          "SourceLink.Create.CommandLine": "2.8.3",
-          "System.Threading.Tasks.Extensions": "4.5.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Bot.Configuration.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Bot.Configuration.dll": {}
         }
       },
       "Microsoft.Bot.Connector/4.7.0": {
@@ -2822,15 +2756,6 @@
           "lib/netstandard2.0/Microsoft.Recognizers.Text.Choice.dll": {}
         }
       },
-      "Microsoft.Recognizers.Text.DataTypes.TimexExpression/1.2.9": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll": {}
-        }
-      },
       "Microsoft.Recognizers.Text.DateTime/1.2.9": {
         "type": "package",
         "dependencies": {
@@ -2883,19 +2808,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.dll": {}
-        }
-      },
-      "Microsoft.Rest.ClientRuntime.Azure/3.3.19": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Rest.ClientRuntime": "[2.3.19, 3.0.0)",
-          "Newtonsoft.Json": "10.0.3"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.Azure.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.Azure.dll": {}
         }
       },
       "Microsoft.TestPlatform.ObjectModel/16.1.1": {
@@ -5222,13 +5134,7 @@
       },
       "TradeBot/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Microsoft.Bot.Builder.AI.Luis": "4.7.0",
-          "Microsoft.Bot.Builder.Dialogs": "4.7.0",
-          "Microsoft.Bot.Builder.Integration.AspNet.Core": "4.7.0",
-          "Microsoft.Recognizers.Text.DataTypes.TimexExpression": "1.2.9"
-        },
+        "framework": "Unsupported,Version=v0.0",
         "compile": {
           "bin/placeholder/TradeBot.dll": {}
         },
@@ -6528,29 +6434,6 @@
         "microsoft.aspnetcore.webutilities.nuspec"
       ]
     },
-    "Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/2.1.0": {
-      "sha512": "8r62mdTtgrn2storrAKjX4c+GzweMuwIxINM9nPWKmFSRLNQQU3Ak1cneqAOEiONY3zkqJtF9ik6uuVbxDH9Qw==",
-      "type": "package",
-      "path": "microsoft.azure.cognitiveservices.language.luis.runtime/2.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/Microsoft.Azure.CognitiveServices.Language.LUIS.dll",
-        "lib/net452/Microsoft.Azure.CognitiveServices.Language.LUIS.runtimeconfig.json",
-        "lib/net452/Microsoft.Azure.CognitiveServices.Language.LUIS.xml",
-        "lib/net461/Microsoft.Azure.CognitiveServices.Language.LUIS.dll",
-        "lib/net461/Microsoft.Azure.CognitiveServices.Language.LUIS.runtimeconfig.json",
-        "lib/net461/Microsoft.Azure.CognitiveServices.Language.LUIS.xml",
-        "lib/netstandard1.4/Microsoft.Azure.CognitiveServices.Language.LUIS.dll",
-        "lib/netstandard1.4/Microsoft.Azure.CognitiveServices.Language.LUIS.runtimeconfig.json",
-        "lib/netstandard1.4/Microsoft.Azure.CognitiveServices.Language.LUIS.xml",
-        "lib/netstandard2.0/Microsoft.Azure.CognitiveServices.Language.LUIS.dll",
-        "lib/netstandard2.0/Microsoft.Azure.CognitiveServices.Language.LUIS.runtimeconfig.json",
-        "lib/netstandard2.0/Microsoft.Azure.CognitiveServices.Language.LUIS.xml",
-        "microsoft.azure.cognitiveservices.language.luis.runtime.2.1.0.nupkg.sha512",
-        "microsoft.azure.cognitiveservices.language.luis.runtime.nuspec"
-      ]
-    },
     "Microsoft.Bot.Builder/4.7.0": {
       "sha512": "qi6o512Vnao9Llt2/fI4r3F2cebj5Xr8KCAdz6AqpVu8bQnE7p8tOz1gzGFDd3ZUtX8dI8y7vdOOWoeYY3YwmA==",
       "type": "package",
@@ -6564,21 +6447,6 @@
         "lib/netstandard2.0/Microsoft.Bot.Builder.xml",
         "microsoft.bot.builder.4.7.0.nupkg.sha512",
         "microsoft.bot.builder.nuspec"
-      ]
-    },
-    "Microsoft.Bot.Builder.AI.Luis/4.7.0": {
-      "sha512": "BLiaMu1tJ/7KTDD29NLv50YU9Jtv4XmIp0YzAU03Pzy8BrUqj4kd/K/gkebzFFAValEc3mzUZFTmKDxiwg6q9w==",
-      "type": "package",
-      "path": "microsoft.bot.builder.ai.luis/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.png",
-        "lib/netstandard2.0/Microsoft.Bot.Builder.AI.Luis.dll",
-        "lib/netstandard2.0/Microsoft.Bot.Builder.AI.Luis.pdb",
-        "lib/netstandard2.0/Microsoft.Bot.Builder.AI.Luis.xml",
-        "microsoft.bot.builder.ai.luis.4.7.0.nupkg.sha512",
-        "microsoft.bot.builder.ai.luis.nuspec"
       ]
     },
     "Microsoft.Bot.Builder.Dialogs/4.7.0": {
@@ -6596,21 +6464,6 @@
         "microsoft.bot.builder.dialogs.nuspec"
       ]
     },
-    "Microsoft.Bot.Builder.Integration.AspNet.Core/4.7.0": {
-      "sha512": "V2LNLeuonpSAfrfltWEARiNU6QQFlAAt3iiDgYg/SI25kXqKpcXK0fBvoEoI1NpDP3VLTVR/E0kA5zU3I/+IWA==",
-      "type": "package",
-      "path": "microsoft.bot.builder.integration.aspnet.core/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.png",
-        "lib/netstandard2.0/Microsoft.Bot.Builder.Integration.AspNet.Core.dll",
-        "lib/netstandard2.0/Microsoft.Bot.Builder.Integration.AspNet.Core.pdb",
-        "lib/netstandard2.0/Microsoft.Bot.Builder.Integration.AspNet.Core.xml",
-        "microsoft.bot.builder.integration.aspnet.core.4.7.0.nupkg.sha512",
-        "microsoft.bot.builder.integration.aspnet.core.nuspec"
-      ]
-    },
     "Microsoft.Bot.Builder.Testing/4.7.0": {
       "sha512": "NbgZhdcEs8ooAd26I6eaqr13+Ul3vqdTXsrD7y/drFJ/20ClkjUt+OpyiaGXRQ0TjOqLE3qtcKv/yjRxTJd+nw==",
       "type": "package",
@@ -6624,21 +6477,6 @@
         "lib/netstandard2.0/Microsoft.Bot.Builder.Testing.xml",
         "microsoft.bot.builder.testing.4.7.0.nupkg.sha512",
         "microsoft.bot.builder.testing.nuspec"
-      ]
-    },
-    "Microsoft.Bot.Configuration/4.7.0": {
-      "sha512": "SPWotZdRJYXcci6mS3Co2llB6u3XBA7K4vjY8Ho1rkqokXNDTmcK82GkIiGVeEf0DEd1F2LXsC+40piuTVX1vw==",
-      "type": "package",
-      "path": "microsoft.bot.configuration/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "icon.png",
-        "lib/netstandard2.0/Microsoft.Bot.Configuration.dll",
-        "lib/netstandard2.0/Microsoft.Bot.Configuration.pdb",
-        "lib/netstandard2.0/Microsoft.Bot.Configuration.xml",
-        "microsoft.bot.configuration.4.7.0.nupkg.sha512",
-        "microsoft.bot.configuration.nuspec"
       ]
     },
     "Microsoft.Bot.Connector/4.7.0": {
@@ -8142,22 +7980,6 @@
         "microsoft.recognizers.text.choice.nuspec"
       ]
     },
-    "Microsoft.Recognizers.Text.DataTypes.TimexExpression/1.2.9": {
-      "sha512": "ih1B1GF3YqtqCb161A7VtVfsKbIDnC3SZXYcMyGqY6WQNw0T8UwAZAnBUXw05U4LdI7NAwYSOxFcvvno3t1qmA==",
-      "type": "package",
-      "path": "microsoft.recognizers.text.datatypes.timexexpression/1.2.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "images/icon.png",
-        "lib/net45/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll",
-        "lib/net452/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll",
-        "lib/net462/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll",
-        "lib/netstandard2.0/Microsoft.Recognizers.Text.DataTypes.TimexExpression.dll",
-        "microsoft.recognizers.text.datatypes.timexexpression.1.2.9.nupkg.sha512",
-        "microsoft.recognizers.text.datatypes.timexexpression.nuspec"
-      ]
-    },
     "Microsoft.Recognizers.Text.DateTime/1.2.9": {
       "sha512": "dbZox2gglj8qEmdhtRiaDboI18BDIxhkamvTDFTBtf5fg6VUEgZACO0RaVenmCw039DWlIDqNqk6XyRpRzn/xw==",
       "type": "package",
@@ -8223,29 +8045,6 @@
         "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
         "microsoft.rest.clientruntime.2.3.21.nupkg.sha512",
         "microsoft.rest.clientruntime.nuspec"
-      ]
-    },
-    "Microsoft.Rest.ClientRuntime.Azure/3.3.19": {
-      "sha512": "+NVBWvRXNwaAPTZUxjUlQggsrf3X0GbiRoxYfgc3kG9E55ZxZxvZPT3nIfC4DNqzGSXUEvmLbckdXgBBzGdUaA==",
-      "type": "package",
-      "path": "microsoft.rest.clientruntime.azure/3.3.19",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "lib/net452/Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json",
-        "lib/net452/Microsoft.Rest.ClientRuntime.Azure.xml",
-        "lib/net461/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "lib/net461/Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json",
-        "lib/net461/Microsoft.Rest.ClientRuntime.Azure.xml",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json",
-        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.xml",
-        "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json",
-        "lib/netstandard2.0/Microsoft.Rest.ClientRuntime.Azure.xml",
-        "microsoft.rest.clientruntime.azure.3.3.19.nupkg.sha512",
-        "microsoft.rest.clientruntime.azure.nuspec"
       ]
     },
     "Microsoft.TestPlatform.ObjectModel/16.1.1": {
@@ -13956,8 +13755,7 @@
   },
   "packageFolders": {
     "C:\\Users\\MarianoRodriguez\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -13969,8 +13767,7 @@
       "outputPath": "C:\\Repositories\\TradeBot\\TradeBot\\TradeBot.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\MarianoRodriguez\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -14043,8 +13840,19 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project TradeBot is not compatible with netcoreapp2.1 (.NETCoreApp,Version=v2.1). Project TradeBot supports: netcoreapp3.1 (.NETCoreApp,Version=v3.1)",
+      "libraryId": "TradeBot",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

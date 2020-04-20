@@ -10,8 +10,6 @@ using Microsoft.Recognizers.Text.NumberWithUnit;
 using Microsoft.Recognizers.Text.Sequence;
 using Newtonsoft.Json;
 
-using TradeBot.Models;
-
 
 namespace BrokerConsole
 {
