@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TradeBot.Models
+using TradeBotAPI.Models.IOL;
+
+namespace TradeBotAPI.Models
 {
     /// <summary>
     /// Helps to admin the stocks holdings owned by the user.
@@ -14,6 +16,10 @@ namespace TradeBot.Models
         public double Cash_USD { get; set; }
         public double Cash_ARS { get; set; }
 
+        public string pais { get; set; }
+
+        public List<Activo> activos { get; set; }
+
         public List<Holding> StocksOwned { get; set; }
 
         public Portfolio()
@@ -21,6 +27,8 @@ namespace TradeBot.Models
             StocksOwned = new List<Holding>();
             // TODO: Activate this method: read_json_data_from_file() 
             // read_json_data_from_file();
+
+            // TODO: Estudiar alguna forma de mapear con operadores o algo util y fancy.
         }
 
         public string Show()

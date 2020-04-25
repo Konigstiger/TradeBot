@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TradeBot.Models
+namespace TradeBotAPI.Models
 {
     /// <summary>
     /// This class contains information about the available formal markets where stock trading is enabled

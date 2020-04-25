@@ -14,10 +14,10 @@ using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
 using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
 
-using TradeBot;
-using TradeBot.CognitiveModels;
+using TradeBotAPI;
+using TradeBotAPI.CognitiveModels;
 
-namespace TradeBot.Dialogs
+namespace TradeBotAPI.Dialogs
 {
     public class MainDialog : ComponentDialog
     {

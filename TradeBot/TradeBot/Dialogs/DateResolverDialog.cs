@@ -11,7 +11,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 using Microsoft.Recognizers.Text.DataTypes.TimexExpression;
 
-namespace TradeBot.Dialogs
+namespace TradeBotAPI.Dialogs
 {
     public class DateResolverDialog : CancelAndHelpDialog
     {

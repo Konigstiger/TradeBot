@@ -10,10 +10,10 @@ using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Integration.AspNet.Core;
 using Microsoft.Extensions.DependencyInjection;
 
-using TradeBot.Bots;
-using TradeBot.Dialogs;
+using TradeBotAPI.Bots;
+using TradeBotAPI.Dialogs;
 
-namespace TradeBot
+namespace TradeBotAPI
 {
     public class Startup
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TradeBot.Models
+namespace TradeBotAPI.Models
 {
     /// <summary>
     /// Contains details about the stocks owned by the user. 

@@ -3,20 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TradeBot.Models
+namespace TradeBotAPI.Models
 {
     /// <summary>
     /// Represents an intermediary that executes buy and sell orders, among other tasks.
     /// </summary>
-    public class Broker
+    public class Broker : IBroker
     {
-        public string Name { get; set; }
-        public double Commission { get; set; }
+        private string name;
 
-        public Broker()
+        public string GetName()
         {
-            Name = "Fast Broker";
-            Commission = 0.005;
+            return name;
         }
+
+        public void SetName(string value)
+        {
+            name = value;
+        }
+
+        private double commission;
+
+        public double GetCommission()
+        {
+            return commission;
+        }
+
+        public void SetCommission(double value)
+        {
+            commission = value;
+        }
+
+        public Broker(string name= "IOL [Invertir Online]", double commission=0.005)
+        {
+            SetName(name);
+            SetCommission(commission);
+        }
+
     }
 }

@@ -7,7 +7,7 @@ using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.AI.Luis;
 using Microsoft.Extensions.Configuration;
 
-namespace TradeBot
+namespace TradeBotAPI
 {
     public class FlightBookingRecognizer : IRecognizer
     {

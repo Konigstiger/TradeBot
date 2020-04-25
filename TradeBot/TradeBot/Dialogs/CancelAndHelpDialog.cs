@@ -9,7 +9,7 @@ using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Schema;
 
-namespace TradeBot.Dialogs
+namespace TradeBotAPI.Dialogs
 {
     public class CancelAndHelpDialog : ComponentDialog
     {

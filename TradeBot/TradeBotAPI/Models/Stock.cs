@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TradeBot.Models
+namespace TradeBotAPI.Models
 {
     /// <summary>
     /// Represents a stock, an investment instrument.
