@@ -12,38 +12,25 @@ namespace TradeBotAPITests
         IBrokerService _service;
 
         [Fact]
-        public void Test_crap()
+        public void WhenPortfolioIsRequested_Return_Not_Null()
         {
             //_service = new BrokerServiceFake();
            // _service = new BrokerService("IOL", 0.005);
-
-            var services = new ServiceCollection();
-            services.UseServices();
-            var serviceProvider = services.BuildServiceProvider();
-
-            var service = serviceProvider.GetRequiredService<IBrokerService>();
-
-            var porty = service.GetPortfolioAsync();
-
-            Assert.NotNull(porty.Result);
-        }
-
-
-        [Fact]
-        public void Token_WhenCalled_Returns_Not_Null()
-        {
             // Arrange
             var services = new ServiceCollection();
-            services.UseServices();
+            //services.UseServices();
+            services.UseFakeServices();     // TEST: this will make it go through the Fake version.
             var serviceProvider = services.BuildServiceProvider();
             var service = serviceProvider.GetRequiredService<IBrokerService>();
 
             // Act
-            var okResult = _service.BearerToken;
+            var porty = service.GetPortfolioAsync();
 
             // Assert
-            Assert.NotNull(okResult);
+            Assert.NotNull(porty.Result);
         }
+
+
 
 
     }

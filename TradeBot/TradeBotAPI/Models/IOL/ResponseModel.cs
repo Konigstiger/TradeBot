@@ -7,12 +7,6 @@ namespace TradeBotAPI.Models.IOL
 {
     public class ResponseModel
     {
-        /*
-        ok (boolean, optional),
-        messages (Array[DetalleMensaje], optional)
-        }
-             * */
-
         public bool ok { get; set; }
 
         public DetalleMensaje[] messages { get; set; }

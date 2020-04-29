@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TradeBotAPI.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BrokerConsole
 {
@@ -15,7 +17,7 @@ namespace BrokerConsole
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddHttpClient();
-                    services.AddTransient<IMyService, MyService>();
+                    services.AddHttpClient<IBrokerService, BrokerService>();
                 }).UseConsoleLifetime();
 
             var host = builder.Build();
@@ -26,6 +28,17 @@ namespace BrokerConsole
 
                 try
                 {
+                    //var services = new ServiceCollection();
+                    services.UseServices();
+                    var serviceProvider = services.BuildServiceProvider();
+                    var service = serviceProvider.GetRequiredService<IBrokerService>();
+
+                    // Act
+                    var porty = service.GetPortfolioAsync();
+
+
+
+
                     var myService = services.GetRequiredService<IMyService>();
                     var pageContent = await myService.GetPage();
 

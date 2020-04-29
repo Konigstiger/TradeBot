@@ -20,7 +20,7 @@ namespace TradeBotAPI
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();  // TODO: Here, I think we can force to use a StartupFake class! Mmm.
                 });
     }
 }

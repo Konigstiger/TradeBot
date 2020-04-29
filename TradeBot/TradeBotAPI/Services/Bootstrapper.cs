@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TradeBotAPI.Services.Fakes;
 
 namespace TradeBotAPI.Services
 {
@@ -8,5 +9,12 @@ namespace TradeBotAPI.Services
         {
             services.AddHttpClient<IBrokerService, BrokerService>();
         }
+
+        // this can be handy, my ideas
+        public static void UseFakeServices(this IServiceCollection services)
+        {
+            services.AddHttpClient<IBrokerService, BrokerServiceFake>();
+        }
+
     }
 }

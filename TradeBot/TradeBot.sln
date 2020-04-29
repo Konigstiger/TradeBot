@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBot", "TradeBot\TradeBot.csproj", "{709E219A-5313-4B36-929B-5F930D39975E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerConsole", "..\BrokerConsole\BrokerConsole\BrokerConsole.csproj", "{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBotAPI", "TradeBotAPI\TradeBotAPI.csproj", "{4D0BAE20-33EC-4454-8C2C-274773210803}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBotAPITests", "TradeBotAPITests\TradeBotAPITests.csproj", "{3AB1D3DE-1AA7-4386-B863-D9250307E60E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleRecognizers", "ConsoleRecognizers\ConsoleRecognizers.csproj", "{D7548884-3C68-4F2D-849E-68C8D074A4E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleRecognizers", "ConsoleRecognizers\ConsoleRecognizers.csproj", "{D7548884-3C68-4F2D-849E-68C8D074A4E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBotConsole", "TradeBotConsole\TradeBotConsole.csproj", "{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{709E219A-5313-4B36-929B-5F930D39975E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{709E219A-5313-4B36-929B-5F930D39975E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{709E219A-5313-4B36-929B-5F930D39975E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01CC35A7-0073-4E8C-B2BA-D0A9CDD590E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D0BAE20-33EC-4454-8C2C-274773210803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D0BAE20-33EC-4454-8C2C-274773210803}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D0BAE20-33EC-4454-8C2C-274773210803}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{D7548884-3C68-4F2D-849E-68C8D074A4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7548884-3C68-4F2D-849E-68C8D074A4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7548884-3C68-4F2D-849E-68C8D074A4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

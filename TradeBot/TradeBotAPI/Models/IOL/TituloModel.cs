@@ -8,7 +8,7 @@ namespace TradeBotAPI.Models.IOL
     public class TituloModel
     {
         public string simbolo { get; set; }
-        
+
         public string descripcion { get; set; }
 
         // ['estados_Unidos', 'argentina']
@@ -18,11 +18,25 @@ namespace TradeBotAPI.Models.IOL
 
         // ['oPCIONES', 'cEDEARS', 'tITULOSPUBLICOS', 'aCCIONES', 'cUPONESPRIVADOS', 'fONDOSDEINVERSION', 'aDR', 'iNDICES', 'bOCON', 'bONEX', 'cERTIFICADOSPAR', 'oBLIGACIONESNEGOCIABLES', 'oBLIGACIONESPYME', 'cUPONESOBL', 'lETRAS', 'lETES', 'bONOS', 'fUTURO', 'fondoComundeInversion'],
         public string tipo { get; set; }
-        
+
         public string plazo { get; set; }
 
         // ['peso_Argentino', 'dolar_Estadounidense', 'real', 'peso_Mexicano', 'peso_Chileno', 'yen', 'libra', 'euro', 'peso_Peruano', 'peso_Colombiano', 'peso_Uruguayo']
         public string moneda { get; set; }
+
+        public TituloModel(string simbolo, string descripcion, string moneda= "peso_Argentino") 
+        {
+            this.simbolo = simbolo;
+            this.descripcion = descripcion;
+            this.moneda = moneda;
+            // TODO: Add default
+        }
+
+        public override string ToString()
+        {
+            // TODO: Use StringBuilder
+            return "[" + simbolo + "]" + descripcion;
+        }
 
         /*
         "simbolo": "ADCGLOA",

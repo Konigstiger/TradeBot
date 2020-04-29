@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TradeBotConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "portfolio"
+    }
+  }
+}

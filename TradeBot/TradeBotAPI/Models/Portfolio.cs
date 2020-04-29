@@ -25,9 +25,7 @@ namespace TradeBotAPI.Models
         public Portfolio()
         {
             StocksOwned = new List<Holding>();
-            // TODO: Activate this method: read_json_data_from_file() 
-            // read_json_data_from_file();
-
+            activos = new List<Activo>();
             // TODO: Estudiar alguna forma de mapear con operadores o algo util y fancy.
         }
 
@@ -37,9 +35,6 @@ namespace TradeBotAPI.Models
 
             // TODO: Remember to show how much free cash is there in the account.
             if (StocksOwned.Count == 0) return "Portfolio empty.";
-
-            // print headers first
-            // this.PrintHeaders();
 
             foreach (var holding in StocksOwned)
             {

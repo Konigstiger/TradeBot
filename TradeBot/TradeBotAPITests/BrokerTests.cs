@@ -26,11 +26,5 @@ namespace TradeBotAPITests
             Assert.Equal(0.005, okResult);
         }
 
-
-        [Fact]
-        public void Test1()
-        {
-            
-        }
     }
 }

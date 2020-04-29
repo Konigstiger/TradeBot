@@ -8,16 +8,33 @@ namespace TradeBotAPI.Models.IOL
     public class Activo
     {
         public float cantidad { get; set; }
+
         public float comprometido { get; set; }
+        
         public float puntosVariacion { get; set; }
+        
         public float variacionDiaria { get; set; }
+        
         public float ultimoPrecio { get; set; }
+        
         public float ppc { get; set; }
+        
         public float gananciaPorcentaje { get; set; }
+        
         public float gananciaDinero { get; set; }
+        
         public float valorizado { get; set; }
         
         public TituloModel titulo { get; set; }
+
+        public override string ToString()
+        {
+            // TODO: Use StringBuilder
+            var result = cantidad + " [" + titulo.simbolo + "] " + titulo.descripcion;
+
+            // Segun modificadores en las llamadas, debería devolver diferente nivel de detalle.
+            return result;
+        }
 
         /*
           "cantidad": 100.62,

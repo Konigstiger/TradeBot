@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using TradeBotAPI.Models;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.VisualStudio.Services.OAuth;
 using Newtonsoft.Json;
-
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Microsoft.VisualStudio.Services.OAuth;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+using TradeBotAPI.Models;
 
 namespace TradeBotAPI.Services
 {
@@ -53,16 +43,6 @@ namespace TradeBotAPI.Services
             {
                 var baseUrl = urlToken;
                 client.BaseAddress = new Uri(baseUrl);
-
-                // TODO: ver.
-                client.DefaultRequestHeaders.Accept.Clear();
-                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
-                //client.DefaultRequestHeaders.Add("username", "Konig");
-                //client.DefaultRequestHeaders.Add("password", "Overlord81");
-                //client.DefaultRequestHeaders.Add("grant_type", "password");
-                
-                //// TEST: Ver si lo que hay arriba es necesario
-                //client.DefaultRequestHeaders.Accept.Clear();
             }
             catch (Exception ex)
             {
@@ -74,7 +54,11 @@ namespace TradeBotAPI.Services
         public async Task<AccessTokenResponse> GenerateAccessToken()
         {
             AccessTokenResponse token = null;
+            // TODO: Hacer un extract de estos valores.
+            string userName = "Konig";
+            string password = "Overlord81";
 
+            
             try
             {
                 HttpClient client = HeadersForAccessTokenGenerate();
@@ -87,8 +71,8 @@ namespace TradeBotAPI.Services
 
                 var postData = new List<KeyValuePair<string, string>>();
 
-                postData.Add(new KeyValuePair<string, string>("username", "Konig"));
-                postData.Add(new KeyValuePair<string, string>("password", "Overlord81"));
+                postData.Add(new KeyValuePair<string, string>("username", userName));
+                postData.Add(new KeyValuePair<string, string>("password", password));
                 postData.Add(new KeyValuePair<string, string>("grant_type", "password"));
 
                 request.Content = new FormUrlEncodedContent(postData);
@@ -117,6 +101,10 @@ namespace TradeBotAPI.Services
             {
                 throw new Exception("Cannot retrieve Portfolio: BearerToken not available.");
             }
+
+            // TODO: Empezar a diferenciar por Pais. En mi caso no importa porque no tengo cuenta de usa.
+
+
             // antes de ejecutar la llamada normal, asociar el bearer token
             // TODO: Hacer alguna forma de asociar esto, que sea mas reusable.
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", BearerToken.AccessToken);
@@ -141,8 +129,9 @@ namespace TradeBotAPI.Services
             var content = await httpResponse.Content.ReadAsStringAsync();
 
             //TODO: Ver si no hay que hacer un mapping acá de alguna forma.
-
             var item = JsonConvert.DeserializeObject<Portfolio>(content);
+
+            // TODO: ver que onda Ok.
 
             return item;
 

@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "CommandLineParser": {
+              "target": "Package",
+              "version": "[2.7.82, )"
+            },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[3.1.3, )"

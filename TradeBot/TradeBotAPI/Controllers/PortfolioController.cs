@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using TradeBotAPI.Models;
 using TradeBotAPI.Services;
 
@@ -14,15 +15,32 @@ namespace TradeBotAPI.Controllers
     [ApiController]
     public class PortfolioController : ControllerBase
     {
+        private readonly ILogger<PortfolioController> _logger;
+
+        public PortfolioController(ILogger<PortfolioController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET: api/Portfolio
         [HttpGet]
-        public IEnumerable<Portfolio> Get()
-        {
-            return null;
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public Portfolio GetPortfolio() {
+            var services = new ServiceCollection();
+            services.UseServices();
+            var serviceProvider = services.BuildServiceProvider();
+            var service = serviceProvider.GetRequiredService<IBrokerService>();
+
+            var result = service.GetPortfolioAsync();
+
+            return result.Result;
         }
+
 
         // GET: api/Portfolio/5
         [HttpGet("{id}", Name = "Get")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public string Get(int id)
         {
             return "value";
