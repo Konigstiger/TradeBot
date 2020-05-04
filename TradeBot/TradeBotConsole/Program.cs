@@ -2,10 +2,8 @@
 using System;
 using TradeBotAPI.Services;
 using TradeBotAPI.Models;
-using TradeBotAPI.Models.IOL;
-using TradeBotAPI.ExtensionMethods;
 using TradeBotConsole.Colors;
-using TradeBotAPI.ExtensionMethods;
+using TradeBotAPI.Controllers;
 
 namespace TradeBotConsole
 {
@@ -16,16 +14,17 @@ namespace TradeBotConsole
             EscapeSequencer.Install();
             EscapeSequencer.Bold = true; //set default bold to On. Actually this will use bright colors. Easier to read
             Console.WriteLine("");
-            //Console.WriteLine("INFO: ".Red().Bold() + "Welcome ".Red() + ", " + "Motherfuckers.".Rainbow());
 
             ShowIntro();
 
             bool showFake = false;
+
             bool showPortfolio = false;
+            bool showMarket = false;
 
             if (args.Length > 0)
             {
-                // rudimentary 'parsing'
+                // rudimentary 'parsing': first pass
                 foreach (var item in args)
                 {
                     if (item.Trim().ToLower().Equals("portfolio"))
@@ -36,84 +35,158 @@ namespace TradeBotConsole
                     {
                         showFake = true;
                     }
+                    else if (item.Trim().ToLower().Equals("market"))
+                    {
+                        showMarket = true;
+                    }
                 }
 
-                if (showPortfolio)
+                var services = new ServiceCollection();
+
+                if (showFake)
                 {
-                    var services = new ServiceCollection();
-
-                    if (showFake)
-                    {
-                        services.UseFakeServices();
-                    }
-                    else
-                    {
-                        services.UseServices();
-                    }
-
-                    var serviceProvider = services.BuildServiceProvider();
-                    var service = serviceProvider.GetRequiredService<IBrokerService>();
-                    Portfolio portfolio = GetPortFolioAsync(service);
-
-                    ShowPortfolioToScreen(portfolio);
+                    services.UseFakeServices();
                 }
                 else
                 {
-                    Console.WriteLine("Nothing to see here.");
+                    services.UseServices();
+                }
+
+                var serviceProvider = services.BuildServiceProvider();
+                var servicePortfolio = serviceProvider.GetRequiredService<IBrokerService>();
+                var serviceMarket = serviceProvider.GetRequiredService<IMarketService>();
+
+                if (showPortfolio)
+                {
+                    var portfolio = PortfolioController.GetPortfolio(servicePortfolio).Result;
+                    ShowPortfolioToScreen(portfolio);
+                }
+                else if (showMarket) { 
+                    ShowMarket("ar");
+
+                    var market = MarketController.GetMarketAsync(serviceMarket).Result;
+                    ShowMarketToScreen(market);
+                }
+                else
+                {
+                    Ccw("Nothing to see here.", ConsoleColor.Cyan, true);
                     ShowExit();
                     // Console.ReadKey();
                 }
+
             }
+            ShowTimestamp();
         }
 
-        private static Portfolio GetPortFolioAsync(IBrokerService service)
+        private static void ShowMarket(string marketName)
         {
-            return service.GetPortfolioAsync().Result;
+            Ccw("Market: " + marketName, ConsoleColor.Yellow, true);
+            
+            // TODO: here we invoke our web API.
+
+        }
+
+        private static void ShowTimestamp()
+        {
+            Ccw("Last update: ", ConsoleColor.Gray);
+            Ccw(DateTime.Now.ToString(), ConsoleColor.DarkGray, true);
         }
 
         private static void ShowExit()
         {
-            var originalForegroundColor = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("Disconnected.");
-            Console.ForegroundColor = originalForegroundColor;
+            Ccw("Disconnected.", ConsoleColor.DarkRed, true);
         }
 
         private static void ShowPortfolioToScreen(Portfolio portfolio)
         {
-            int w = 100;
+            int w = 120;
 
             // TODO: see how to calculate the dashes to fix.
             CLine(w);
-            Console.WriteLine(String.Format("{0} | {1} | {2} | {3} | {4} | {5}",
+            Console.WriteLine(String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
                     "Quantity".PadLeft(8, ' '),
-                    "Ticker".PadRight(10, ' '),
+                    "Ticker".PadRight(9, ' '),
                     "Description".PadRight(30, ' '),
                     "Day Var. %".PadLeft(10, ' '),
                     "Earnings %".PadLeft(10, ' '),
-                    "Earnings $".PadLeft(10, ' '))
-                    );
+                    "Earnings $".PadLeft(14, ' '),
+                    "Valued   $".PadLeft(12, ' ')
+                    )
+                );
             CLine(w);
 
-            // TODO: ADD DAILY PROGRESS
 
             foreach (var item in portfolio.activos)
             {
-                var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5}",
+                var moneySymbol = TranslateMoneyDescription(item.titulo.moneda);
+                var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
                         item.cantidad.ToString().PadLeft(8, ' ').Yellow(),
-                        item.titulo.simbolo.PadRight(10, ' ').Blue(),
+                        item.titulo.simbolo.PadRight(9, ' ').Blue(),
                         item.titulo.descripcion.PadRight(30, ' '),
-                        (item.variacionDiaria.ToString().Trim() + " %") .PadLeft(10, ' ').ConditionalNumber(),
+                        (item.variacionDiaria.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
                         (item.gananciaPorcentaje.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
-                        ((TranslateMoneyDescription(item.titulo.moneda) + (item.gananciaDinero.ToString().PadLeft(10, ' ')).PadRight(10, ' ')).ConditionalNumber()
-                        ));
+                        (moneySymbol + item.gananciaDinero.ToString().PadLeft(10, ' ').PadRight(10, ' ')).ConditionalNumber(),
+                        (moneySymbol + item.valorizado.ToString().PadLeft(12, ' ')).Grey()
+                        );
 
                 Console.WriteLine(text);
-                
+
                 // NOTE: using ToString("C") gives the currency format defined in the pc. Useful. Parametrize!
                 // TODO: Objetivo: Poder escribir a color, a nivel de CELDA, no de fila.
             }
             CLine(w);
+        }
+
+
+        private static void ShowMarketToScreen(Market market)
+        {
+            int w = 120;
+
+            CLine(w);
+            Ccw("< market elements >",ConsoleColor.Green, true);
+            CLine(w);
+
+            foreach (var item in market.Stocks) {
+                Ccw(item.ToString(), ConsoleColor.White, true);
+            }
+
+            /*
+
+            // TODO: see how to calculate the dashes to fix.
+            CLine(w);
+            Console.WriteLine(String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
+                    "Quantity".PadLeft(8, ' '),
+                    "Ticker".PadRight(9, ' '),
+                    "Description".PadRight(30, ' '),
+                    "Day Var. %".PadLeft(10, ' '),
+                    "Earnings %".PadLeft(10, ' '),
+                    "Earnings $".PadLeft(14, ' '),
+                    "Valued   $".PadLeft(12, ' ')
+                    )
+                );
+            CLine(w);
+
+            foreach (var item in portfolio.activos)
+            {
+                var moneySymbol = TranslateMoneyDescription(item.titulo.moneda);
+                var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
+                        item.cantidad.ToString().PadLeft(8, ' ').Yellow(),
+                        item.titulo.simbolo.PadRight(9, ' ').Blue(),
+                        item.titulo.descripcion.PadRight(30, ' '),
+                        (item.variacionDiaria.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
+                        (item.gananciaPorcentaje.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
+                        (moneySymbol + item.gananciaDinero.ToString().PadLeft(10, ' ').PadRight(10, ' ')).ConditionalNumber(),
+                        (moneySymbol + item.valorizado.ToString().PadLeft(12, ' ')).Grey()
+                        );
+
+                Console.WriteLine(text);
+
+                // NOTE: using ToString("C") gives the currency format defined in the pc. Useful. Parametrize!
+                // TODO: Objetivo: Poder escribir a color, a nivel de CELDA, no de fila.
+            }
+            CLine(w);
+            */
+
         }
 
         private static string TranslateMoneyDescription(string value)
@@ -134,7 +207,7 @@ namespace TradeBotConsole
         /// </summary>
         private static void ShowIntro()
         {
-            Ccw("Welcome to ", ConsoleColor.Yellow);
+            Ccw("Welcome to ", ConsoleColor.Cyan);
             Ccw("TradeBot Console", ConsoleColor.DarkCyan, true);
 
             // Standard Color reference:
@@ -177,7 +250,7 @@ namespace TradeBotConsole
         /// --------------------------------------
         /// </summary>
         /// <param name="columnWidth"></param>
-        public static void CLine(int columnWidth) 
+        public static void CLine(int columnWidth)
         {
             Console.WriteLine("-".PadLeft(columnWidth, '-'));
         }

@@ -28,8 +28,16 @@ namespace TradeBotAPI
         {
             services.AddControllers();
 
+            // INFO: I dont know if this line is necessary. Also, there is .AddMvcCore()
+            //services.AddMvc();
+            //services.AddMvcCore();
+            //services.AddMvcCore().AddApiExplorer();
+
             services.AddHttpClient();
+
+            //setup of our services
             services.AddTransient<IBrokerService, BrokerService>();
+            services.AddTransient<IMarketService, MarketService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

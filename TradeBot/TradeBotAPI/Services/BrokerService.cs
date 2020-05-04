@@ -17,7 +17,8 @@ namespace TradeBotAPI.Services
 
         // TODO: Ver una forma de inyectar estas urls, o bien que esten en una propiedad.
         private const string urlToken = "https://api.invertironline.com/token";
-        private const string urlPortfolio = "https://api.invertironline.com/api/v2/portafolio/argentina";
+        private const string baseUrl = "https://api.invertironline.com/api/v2/";
+        private const string urlPortfolio = baseUrl + "portafolio/argentina";
 
         // TODO: See if is better to use a HttpClientFactory instead. I think so.
         private readonly HttpClient _client;
@@ -57,7 +58,6 @@ namespace TradeBotAPI.Services
             // TODO: Hacer un extract de estos valores.
             string userName = "Konig";
             string password = "Overlord81";
-
             
             try
             {
@@ -69,11 +69,12 @@ namespace TradeBotAPI.Services
                                                     Encoding.UTF8,
                                                     "application/x-www-form-urlencoded");
 
-                var postData = new List<KeyValuePair<string, string>>();
-
-                postData.Add(new KeyValuePair<string, string>("username", userName));
-                postData.Add(new KeyValuePair<string, string>("password", password));
-                postData.Add(new KeyValuePair<string, string>("grant_type", "password"));
+                var postData = new List<KeyValuePair<string, string>>
+                {
+                    new KeyValuePair<string, string>("username", userName),
+                    new KeyValuePair<string, string>("password", password),
+                    new KeyValuePair<string, string>("grant_type", "password")
+                };
 
                 request.Content = new FormUrlEncodedContent(postData);
                 HttpResponseMessage tokenResponse = client.PostAsync(urlToken, new FormUrlEncodedContent(postData)).Result;
@@ -99,11 +100,11 @@ namespace TradeBotAPI.Services
 
             if (null == BearerToken)
             {
+                // TODO: Log this exception.
                 throw new Exception("Cannot retrieve Portfolio: BearerToken not available.");
             }
 
             // TODO: Empezar a diferenciar por Pais. En mi caso no importa porque no tengo cuenta de usa.
-
 
             // antes de ejecutar la llamada normal, asociar el bearer token
             // TODO: Hacer alguna forma de asociar esto, que sea mas reusable.
@@ -111,15 +112,10 @@ namespace TradeBotAPI.Services
 
             var httpResponse = await _client.GetAsync($"{urlPortfolio}");
 
-            // NOTA: Acabo de darme cuenta que mas o menos con la linea de arriba y otra url,
-            // puedo invocar basicamente toda la api!
-
             // urls:
             // [GET] /api/v2/estadocuenta
             // [GET] /api/v2/portafolio/{pais}
             // [GET] /api/v2/operaciones/{numero}
-
-
 
             if (!httpResponse.IsSuccessStatusCode)
             {
@@ -134,7 +130,6 @@ namespace TradeBotAPI.Services
             // TODO: ver que onda Ok.
 
             return item;
-
         }
 
 

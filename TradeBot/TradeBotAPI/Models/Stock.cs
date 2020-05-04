@@ -11,37 +11,43 @@ namespace TradeBotAPI.Models
     /// </summary>
     public class Stock
     {
-    /*
-    {
-      "cantidad": 319.0000,
-      "comprometido": 0.0000,
-      "puntosVariacion": -7.25000000,
-      "variacionDiaria": -5.93,
-      "ultimoPrecio": 115.00000000,
-      "ppc": 130.420,
-      "gananciaPorcentaje": -11.82,
-      "gananciaDinero": -4919.00,
-      "valorizado": 36685.000000000000,
-      "titulo": {
-        "simbolo": "GGAL",
-        "descripcion": "Grupo Financiero Galicia",
-        "pais": "argentina",
-        "mercado": "bcba",
-        "tipo": "ACCIONES",
-        "plazo": "t0",
-        "moneda": "peso_Argentino"
-      }
-    },
-    */
+        /*
+        {
+          "cantidad": 319.0000,
+          "comprometido": 0.0000,
+          "puntosVariacion": -7.25000000,
+          "variacionDiaria": -5.93,
+          "ultimoPrecio": 115.00000000,
+          "ppc": 130.420,
+          "gananciaPorcentaje": -11.82,
+          "gananciaDinero": -4919.00,
+          "valorizado": 36685.000000000000,
+          "titulo": {
+            "simbolo": "GGAL",
+            "descripcion": "Grupo Financiero Galicia",
+            "pais": "argentina",
+            "mercado": "bcba",
+            "tipo": "ACCIONES",
+            "plazo": "t0",
+            "moneda": "peso_Argentino"
+          }
+        },
+        */
 
         // TODO: make these properties, not fields.
-        public string ticker = string.Empty;    // titulo.simbolo
-        public string company = string.Empty;   // titulo.descripcion
-        public string market = string.Empty;    // titulo.mercado
-        public float last_closing_price = 0;    // ultimoPrecio
-        public float daily_variation = 0;       // variacionDiaria
-        public string currency = "ARS";         // titulo.moneda
-        public string country = "ar";           // titulo.pais
+        public string ticker { get; set; }              // titulo.simbolo
+
+        public string company { get; set; }             // titulo.descripcion
+        
+        public string market { get; set; }              // titulo.mercado
+
+        public float last_closing_price { get; set; }   // ultimoPrecio
+        
+        public float daily_variation { get; set; }      // variacionDiaria
+
+        public string currency { get; set; }            // titulo.moneda
+
+        public string country { get; set; }             // titulo.pais
 
         public Stock()
         {
@@ -56,10 +62,11 @@ namespace TradeBotAPI.Models
             market = Market.NASDAQ;
         }
 
-        public string to_string()
+        public override string ToString()
         {
             return string.Format("{0} ({1})", ticker, company);
         }
+
 
         public double get_current_price()
         {
