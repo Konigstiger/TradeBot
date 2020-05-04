@@ -2,7 +2,7 @@
   "profiles": {
     "TradeBotConsole": {
       "commandName": "Project",
-      "commandLineArgs": "portfolio"
+      "commandLineArgs": "market"
     }
   }
 }

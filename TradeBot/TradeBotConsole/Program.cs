@@ -143,11 +143,11 @@ namespace TradeBotConsole
             int w = 120;
 
             CLine(w);
-            Ccw("< market elements >",ConsoleColor.Green, true);
+            Ccw("< stocks >", ConsoleColor.Green, true);
             CLine(w);
 
-            foreach (var item in market.Stocks) {
-                Ccw(item.ToString(), ConsoleColor.White, true);
+            foreach (var item in market.titulos) {
+                Ccw(item.simbolo.ToString() + " " + item.variacionPorcentual.ToString(), ConsoleColor.White, true);
             }
 
             /*

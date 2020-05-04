@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TradeBotAPI.Models.IOL;
 
 namespace TradeBotAPI.Models
 {
@@ -16,11 +17,16 @@ namespace TradeBotAPI.Models
 
         // TODO: See if this class (owned) is enough.
         public List<Stock> Stocks { get; set; }
+        
+        public List<PanelTituloModel> titulos { get; set; }
 
         public Market()
         {
             Stocks = new List<Stock>();
+            // TODO: see this
+            titulos = new List<PanelTituloModel>();
         }
+
 
 
     }
