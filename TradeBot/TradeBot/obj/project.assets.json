@@ -24,6 +24,18 @@
           "lib/netstandard2.0/CommandLine.dll": {}
         }
       },
+      "CsvHelper/15.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/CsvHelper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/CsvHelper.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.4": {
         "type": "package",
         "dependencies": {
@@ -3106,6 +3118,7 @@
         "dependencies": {
           "AutoMapper": "9.0.0",
           "CommandLineParser": "2.7.82",
+          "CsvHelper": "15.0.5",
           "Microsoft.Extensions.DependencyInjection": "3.1.3",
           "Microsoft.VisualStudio.Services.Client": "16.153.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.2",
@@ -3161,6 +3174,26 @@
         "lib/net461/CommandLine.xml",
         "lib/netstandard2.0/CommandLine.dll",
         "lib/netstandard2.0/CommandLine.xml"
+      ]
+    },
+    "CsvHelper/15.0.5": {
+      "sha512": "HPoE5nASoFXqoXKSi5yEBam7TzDrtC8WESA4xq53JtPKV8Mm+IKRuN+FJyMoJg1Whv/NG4JiCUs9yUcaSY/ziQ==",
+      "type": "package",
+      "path": "csvhelper/15.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.15.0.5.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.4": {

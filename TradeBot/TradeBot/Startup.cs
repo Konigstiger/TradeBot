@@ -20,7 +20,7 @@ namespace TradeBotAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             // Create the Bot Framework Adapter with error handling enabled.
             services.AddSingleton<IBotFrameworkHttpAdapter, AdapterWithErrorHandler>();
@@ -62,7 +62,8 @@ namespace TradeBotAPI
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseWebSockets();
-            app.UseMvc();
+            
+            //app.UseMvc();
         }
     }
 }

@@ -143,31 +143,44 @@ namespace TradeBotConsole
             int w = 120;
 
             CLine(w);
-            Ccw("< stocks >", ConsoleColor.Green, true);
+            Ccw("Found " + market.titulos.Count + " stocks.", ConsoleColor.Green, true);
             CLine(w);
 
-            foreach (var item in market.titulos) {
-                Ccw(item.simbolo.ToString() + " " + item.variacionPorcentual.ToString(), ConsoleColor.White, true);
-            }
-
-            /*
-
-            // TODO: see how to calculate the dashes to fix.
-            CLine(w);
-            Console.WriteLine(String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
-                    "Quantity".PadLeft(8, ' '),
-                    "Ticker".PadRight(9, ' '),
-                    "Description".PadRight(30, ' '),
+            Console.WriteLine(String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6} |",
+                    "Symbol  ".PadLeft(9, ' '),
+                    "Curr $".PadRight(9, ' '),
                     "Day Var. %".PadLeft(10, ' '),
-                    "Earnings %".PadLeft(10, ' '),
-                    "Earnings $".PadLeft(14, ' '),
-                    "Valued   $".PadLeft(12, ' ')
+                    "Open $".PadLeft(10, ' '),
+                    "Min $".PadLeft(12, ' '),
+                    "Max $".PadLeft(12, ' '),
+                    "Last Close $".PadLeft(12, ' '),
+                    "Volume $".PadLeft(14, ' ')
                     )
                 );
             CLine(w);
 
-            foreach (var item in portfolio.activos)
-            {
+            foreach (var item in market.titulos) {
+                // IOL has these columns of data:
+                //Simbolo | Ultimo Operado | Variacion Diaria || Cantidad Compra | Pr Compra | Cantidad Venta  |Pr Venta || 
+                //Apertura | Minimo | Maximo | Ultimo Cierre | Monto Operado | Fecha/Hora
+
+                //Ticker | Last Price $ | Variacion Diaria % || Cantidad Compra | Pr Compra | Cantidad Venta  |Pr Venta || 
+                //Apertura $ | Minimo $ | Maximo $ | Ultimo Cierre $ | Monto Operado $ | Fecha/Hora
+
+                var moneySymbol = TranslateMoneyDescription(item.moneda);
+                var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6} |",
+                        item.simbolo.PadRight(9, ' ').Blue(),
+                        item.ultimoPrecio.ToString().PadLeft(9, ' ').Yellow(),
+                        (item.variacionPorcentual.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
+                        item.apertura.ToString().PadLeft(10, ' '),
+                        item.minimo.ToString().PadLeft(12, ' ').Yellow(),
+                        item.maximo.ToString().PadLeft(12, ' ').Yellow(),
+                        item.ultimoCierre.ToString().PadLeft(12, ' ').Yellow()
+                        );
+
+                Console.WriteLine(text);
+
+                /*
                 var moneySymbol = TranslateMoneyDescription(item.titulo.moneda);
                 var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
                         item.cantidad.ToString().PadLeft(8, ' ').Yellow(),
@@ -180,14 +193,11 @@ namespace TradeBotConsole
                         );
 
                 Console.WriteLine(text);
-
-                // NOTE: using ToString("C") gives the currency format defined in the pc. Useful. Parametrize!
-                // TODO: Objetivo: Poder escribir a color, a nivel de CELDA, no de fila.
+                */
             }
-            CLine(w);
-            */
 
         }
+
 
         private static string TranslateMoneyDescription(string value)
         {

@@ -46,29 +46,62 @@ namespace TradeBotAPI.Services.Fakes
         {
             var result = new Market();
 
-            var stock1 = new Stock
+            var titulo1 = new PanelTituloModel()
             {
-                company = "Microsoft Corporation",
-                ticker = "MSFT"
-            };
-            // TODO: Complete models and add more properties.
-
-            var stock2 = new Stock
-            {
-                company = "Grupo Financiero Galicia",
-                ticker = "GGAL"
-            };
-
-            var stock3 = new Stock
-            {
-                company = "Central Puerto",
-                ticker = "CEPU"
+                apertura = 10F,
+                cantidadOperaciones = 5,
+                simbolo = "GGAL",
+                ultimoPrecio = 25F,
+                maximo = 12F,
+                minimo = 10F,
+                volumen = 500F,
+                fecha = DateTime.Now.ToString(),
+                ultimoCierre = 10F,
+                mercado = "bcba"
             };
 
-            result.Stocks.Add(stock1);
-            result.Stocks.Add(stock2);
-            result.Stocks.Add(stock3);
-            
+            /*
+             GGAL
+            apertura: 94
+            cantidadOperaciones: 5411
+            fecha: "2020-05-11T17:00:06.153"
+            fechaVencimiento: null
+            maximo: 105.1
+            mercado: "BCBA"
+            minimo: 90.05
+            moneda: "ARS"
+            precioEjercicio: null
+            puntas: PuntasModel
+            simbolo: "GGAL"
+            tipoOpcion: null
+            ultimoCierre: 104.8
+            ultimoPrecio: 104.8
+            variacionPorcentual: 11.02
+            volumen: 3104167 (ver en millones o en miles, lo mas pequeño)
+
+
+
+            CEPU
+            apertura: 29
+            cantidadOperaciones: 1232
+            fecha: "2020-05-11T17:00:06.153"
+            fechaVencimiento: null
+            maximo: 29.8
+            mercado: "BCBA"
+            minimo: 26.55
+            moneda: "ARS"
+            precioEjercicio: null
+            puntas: PuntasModel
+            simbolo: "CEPU"
+            tipoOpcion: null
+            ultimoCierre: 29.2
+            ultimoPrecio: 29.2
+            variacionPorcentual: 2.46 
+            volumen: 917215
+             */
+
+            result.titulos.Add(titulo1);
+
             return result;
         }
     }

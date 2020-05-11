@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBotAPITests", "TradeBo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleRecognizers", "ConsoleRecognizers\ConsoleRecognizers.csproj", "{D7548884-3C68-4F2D-849E-68C8D074A4E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBotConsole", "TradeBotConsole\TradeBotConsole.csproj", "{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBotConsole", "TradeBotConsole\TradeBotConsole.csproj", "{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
