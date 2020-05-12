@@ -48,59 +48,49 @@ namespace TradeBotAPI.Services.Fakes
 
             var titulo1 = new PanelTituloModel()
             {
-                apertura = 10F,
-                cantidadOperaciones = 5,
-                simbolo = "GGAL",
-                ultimoPrecio = 25F,
-                maximo = 12F,
-                minimo = 10F,
-                volumen = 500F,
-                fecha = DateTime.Now.ToString(),
-                ultimoCierre = 10F,
-                mercado = "bcba"
+            apertura = 94,
+            cantidadOperaciones = 5411,
+            fecha = "2020-05-11T17:00:06.153",
+            fechaVencimiento = null,
+            maximo = 105.1F,
+            mercado = "BCBA",
+            minimo = 90.05F,
+            moneda = "ARS",
+            precioEjercicio = null,
+            puntas =  null,
+            simbolo = "GGAL",
+            tipoOpcion = null,
+            ultimoCierre = 104.8F,
+            ultimoPrecio = 104.8F,
+            variacionPorcentual = 11.02F,
+            volumen = 3104167
             };
 
-            /*
-             GGAL
-            apertura: 94
-            cantidadOperaciones: 5411
-            fecha: "2020-05-11T17:00:06.153"
-            fechaVencimiento: null
-            maximo: 105.1
-            mercado: "BCBA"
-            minimo: 90.05
-            moneda: "ARS"
-            precioEjercicio: null
-            puntas: PuntasModel
-            simbolo: "GGAL"
-            tipoOpcion: null
-            ultimoCierre: 104.8
-            ultimoPrecio: 104.8
-            variacionPorcentual: 11.02
-            volumen: 3104167 (ver en millones o en miles, lo mas pequeño)
+            //TODO: Add PuntasModel
 
-
-
-            CEPU
-            apertura: 29
-            cantidadOperaciones: 1232
-            fecha: "2020-05-11T17:00:06.153"
-            fechaVencimiento: null
-            maximo: 29.8
-            mercado: "BCBA"
-            minimo: 26.55
-            moneda: "ARS"
-            precioEjercicio: null
-            puntas: PuntasModel
-            simbolo: "CEPU"
-            tipoOpcion: null
-            ultimoCierre: 29.2
-            ultimoPrecio: 29.2
-            variacionPorcentual: 2.46 
-            volumen: 917215
-             */
+            var titulo2 = new PanelTituloModel()
+            {
+                apertura = 29,
+                cantidadOperaciones = 1232,
+                fecha = "2020-05-11T17:00:06.153",
+                fechaVencimiento = null,
+                maximo = 29.8F,
+                mercado = "BCBA",
+                minimo = 26.55F,
+                moneda = "ARS",
+                precioEjercicio = null,
+                puntas = null,
+                simbolo = "CEPU",
+                tipoOpcion = null,
+                ultimoCierre = 29.2F,
+                ultimoPrecio = 29.2F,
+                variacionPorcentual = 2.46F,
+                volumen = 917215
+            };
+            //TODO: Add PuntasModel
 
             result.titulos.Add(titulo1);
+            result.titulos.Add(titulo2);
 
             return result;
         }
