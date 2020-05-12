@@ -126,7 +126,7 @@ namespace TradeBotConsole
                         (item.variacionDiaria.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
                         (item.gananciaPorcentaje.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
                         (moneySymbol + item.gananciaDinero.ToString().PadLeft(10, ' ').PadRight(10, ' ')).ConditionalNumber(),
-                        (moneySymbol + item.valorizado.ToString().PadLeft(12, ' ')).Grey()
+                        (moneySymbol + item.valorizado.ToString().PadLeft(12, ' ')).ConditionalNumber()
                         );
 
                 Console.WriteLine(text);
@@ -145,7 +145,8 @@ namespace TradeBotConsole
             CLine(w);
             Ccw("Found " + market.titulos.Count + " stocks.", ConsoleColor.Green, true);
             CLine(w);
-
+            //Ticker | Last Price $ | Variacion Diaria % || Cantidad Compra | Pr Compra | Cantidad Venta  |Pr Venta || 
+            //Apertura $ | Minimo $ | Maximo $ | Ultimo Cierre $ | Monto Operado $ | Fecha/Hora
             Console.WriteLine(String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6} |",
                     "Symbol  ".PadLeft(9, ' '),
                     "Curr $".PadRight(9, ' '),
@@ -153,8 +154,7 @@ namespace TradeBotConsole
                     "Open $".PadLeft(10, ' '),
                     "Min $".PadLeft(12, ' '),
                     "Max $".PadLeft(12, ' '),
-                    "Last Close $".PadLeft(12, ' '),
-                    "Volume $".PadLeft(14, ' ')
+                    "Last Close $".PadLeft(12, ' ')
                     )
                 );
             CLine(w);

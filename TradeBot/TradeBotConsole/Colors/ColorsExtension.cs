@@ -61,10 +61,17 @@ namespace TradeBotConsole.Colors
 
         public static string ConditionalNumber(this string s) {
             var s2 = s;
-            if (s.EndsWith(" %")) { 
-                s2 = s.Substring(0, s.Length - 2); 
+            if (s.EndsWith(" %")) {
+                // note: 0, s.Length - 2) equals to 0..^2 using the 'range operator'
+                s2 = s[0..^2].Trim(); 
             }
-            return (s2.ToFloat() <= 0) ? Wrap(s, "red") : Wrap(s, "green");
+
+            if (s.StartsWith("U$D") || s.StartsWith("AR$"))
+            {
+                s2 = s.Replace("U$D", "").Replace("AR$", "").Trim();
+            }
+                if (s2.ToFloat() == 0) { return Wrap(s, "blue"); }
+            return (s2.ToFloat() < 0) ? Wrap(s, "red") : Wrap(s, "green");
         }
 
 
