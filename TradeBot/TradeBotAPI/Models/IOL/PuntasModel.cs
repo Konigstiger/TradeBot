@@ -17,7 +17,18 @@ namespace TradeBotAPI.Models.IOL
         public float precioVenta { get; set; }
         
         public float cantidadVenta { get; set; }
-        
+
+        public PuntasModel()
+        { }
+
+        public PuntasModel(float cantidadCompra, float precioCompra, float cantidadVenta, float precioVenta)
+        {
+            this.cantidadCompra = cantidadCompra;
+            this.precioCompra = precioCompra;
+            this.cantidadVenta = cantidadVenta;
+            this.precioVenta = precioVenta;
+        }
+
         public override string ToString()
         {
             // TODO: Do this later

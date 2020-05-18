@@ -57,7 +57,7 @@ namespace TradeBotAPI.Services.Fakes
             minimo = 90.05F,
             moneda = "ARS",
             precioEjercicio = null,
-            puntas =  null,
+            puntas = new PuntasModel(200, 91F, 300, 104.25F),
             simbolo = "GGAL",
             tipoOpcion = null,
             ultimoCierre = 104.8F,
@@ -68,6 +68,7 @@ namespace TradeBotAPI.Services.Fakes
 
             //TODO: Add PuntasModel
 
+            
             var titulo2 = new PanelTituloModel()
             {
                 apertura = 29,
@@ -79,7 +80,7 @@ namespace TradeBotAPI.Services.Fakes
                 minimo = 26.55F,
                 moneda = "ARS",
                 precioEjercicio = null,
-                puntas = null,
+                puntas = new PuntasModel(100, 26.75F, 200, 29F),
                 simbolo = "CEPU",
                 tipoOpcion = null,
                 ultimoCierre = 29.2F,
