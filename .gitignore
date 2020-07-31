@@ -351,3 +351,4 @@ MigrationBackup/
 *.cache
 *.cache
 *.cache
+TradeBot/TradeBotAPI/appsettings.Development.json
