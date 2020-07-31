@@ -54,6 +54,7 @@ namespace TradeBotAPI.Services
 
         public async Task<AccessTokenResponse> GenerateAccessToken()
         {
+            
             AccessTokenResponse token = null;
             // TODO: Hacer un extract de estos valores.
             string userName = "Konig";
@@ -95,6 +96,9 @@ namespace TradeBotAPI.Services
 
         public async Task<Portfolio> GetPortfolioAsync()
         {
+            // TODO: Aca tengo que validar el parametro pais. Pero es un metodo async.
+            // lo correcto sería usar un validator. 
+            
             // TODO: ver alguna forma de que esto sea permanente, y se use el token que corresponda, bearer o refresh.
             BearerToken = await GenerateAccessToken();
 

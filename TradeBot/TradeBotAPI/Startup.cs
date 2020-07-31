@@ -16,6 +16,9 @@ namespace TradeBotAPI
 {
     public class Startup
     {
+        private readonly IWebHostEnvironment environment;
+        private readonly ILogger<Startup> logger;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,6 +37,14 @@ namespace TradeBotAPI
             //services.AddMvcCore().AddApiExplorer();
 
             services.AddHttpClient();
+
+            // test: read from json?
+            // TODO: create classes isomorphic with json
+            //var apiConfiguration = this.Configuration.GetSection("Settings").Get<ApiConfiguration>();
+            var apiConfiguration = this.Configuration.GetSection("Settings").Get<ApiConfiguration>();
+
+            // new config object, will be the same for everyone.
+            services.AddSingleton<Config.IConfiguration>(apiConfiguration);
 
             //setup of our services
             services.AddTransient<IBrokerService, BrokerService>();

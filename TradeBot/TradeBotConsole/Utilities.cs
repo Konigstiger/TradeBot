@@ -94,7 +94,7 @@ namespace TradeBotConsole
 
         public static void ShowPortfolioToScreen(Portfolio portfolio)
         {
-            int w = 120;
+            int w = 118;
 
             // TODO: see how to calculate the dashes to fix.
             CLine(w);
@@ -110,24 +110,31 @@ namespace TradeBotConsole
                 );
             CLine(w);
 
-
-            foreach (var item in portfolio.activos)
+            if (portfolio.activos != null)
             {
-                var moneySymbol = TranslateMoneyDescription(item.titulo.moneda);
-                var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
-                        item.cantidad.ToString().PadLeft(8, ' ').Yellow(),
-                        item.titulo.simbolo.PadRight(9, ' ').Blue(),
-                        item.titulo.descripcion.PadRight(30, ' '),
-                        (item.variacionDiaria.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
-                        (item.gananciaPorcentaje.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
-                        (moneySymbol + item.gananciaDinero.ToString().PadLeft(10, ' ').PadRight(10, ' ')).ConditionalNumber(),
-                        (moneySymbol + item.valorizado.ToString().PadLeft(12, ' ')).ConditionalNumber()
-                        );
+                foreach (var item in portfolio.activos)
+                {
+                    if (item.titulo.descripcion.Length >= 30)
+                    {
+                        item.titulo.descripcion = item.titulo.descripcion.Substring(0, 30);
+                    }
 
-                Console.WriteLine(text);
+                    var moneySymbol = TranslateMoneyDescription(item.titulo.moneda);
+                    var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
+                            item.cantidad.ToString().PadLeft(8, ' ').Yellow(),
+                            item.titulo.simbolo.PadRight(9, ' ').Blue(),
+                            item.titulo.descripcion.PadRight(30, ' '),
+                            (item.variacionDiaria.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
+                            (item.gananciaPorcentaje.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
+                            (moneySymbol + item.gananciaDinero.ToString().PadLeft(10, ' ').PadRight(10, ' ')).ConditionalNumber(),
+                            (moneySymbol + item.valorizado.ToString().PadLeft(12, ' ')).ConditionalNumber()
+                            );
 
-                // NOTE: using ToString("C") gives the currency format defined in the pc. Useful. Parametrize!
-                // TODO: Objetivo: Poder escribir a color, a nivel de CELDA, no de fila.
+                    Console.WriteLine(text);
+
+                    // NOTE: using ToString("C") gives the currency format defined in the pc. Useful. Parametrize!
+                    // TODO: Objetivo: Poder escribir a color, a nivel de CELDA, no de fila.
+                }
             }
             CLine(w);
         }
@@ -135,7 +142,7 @@ namespace TradeBotConsole
 
         public static void ShowMarketToScreen(Market market)
         {
-            int w = 120;
+            int w = 118;
 
             CLine(w);
             Ccw("Found " + market.titulos.Count + " stocks.", ConsoleColor.Green, true);
@@ -176,20 +183,6 @@ namespace TradeBotConsole
 
                 Console.WriteLine(text);
 
-                /*
-                var moneySymbol = TranslateMoneyDescription(item.titulo.moneda);
-                var text = String.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6}",
-                        item.cantidad.ToString().PadLeft(8, ' ').Yellow(),
-                        item.titulo.simbolo.PadRight(9, ' ').Blue(),
-                        item.titulo.descripcion.PadRight(30, ' '),
-                        (item.variacionDiaria.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
-                        (item.gananciaPorcentaje.ToString().Trim() + " %").PadLeft(10, ' ').ConditionalNumber(),
-                        (moneySymbol + item.gananciaDinero.ToString().PadLeft(10, ' ').PadRight(10, ' ')).ConditionalNumber(),
-                        (moneySymbol + item.valorizado.ToString().PadLeft(12, ' ')).Grey()
-                        );
-
-                Console.WriteLine(text);
-                */
             }
 
         }

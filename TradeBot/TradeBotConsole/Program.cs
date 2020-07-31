@@ -21,6 +21,8 @@ namespace TradeBotConsole
 
             bool showPortfolio = false;
             bool showMarket = false;
+            bool buyOperation = false;
+            bool sellOperation = false;
 
             if (args.Length > 0)
             {
@@ -39,6 +41,15 @@ namespace TradeBotConsole
                     {
                         showMarket = true;
                     }
+                    else if (item.Trim().ToLower().Equals("buy"))
+                    {
+                        buyOperation = true;
+                    }
+                    else if (item.Trim().ToLower().Equals("sell"))
+                    {
+                        sellOperation = true;
+                    }
+                    // TODO: Add an option to recognize buy and sell verbs.
                 }
 
                 var services = new ServiceCollection();
@@ -59,13 +70,21 @@ namespace TradeBotConsole
                 if (showPortfolio)
                 {
                     var portfolio = PortfolioController.GetPortfolio(servicePortfolio).Result;
-                    Utilities.ShowPortfolioToScreen(portfolio);
+                    Utilities.ShowPortfolioToScreen(portfolio.Value);
                 }
                 else if (showMarket) { 
                     Utilities.ShowMarket("ar");
 
                     var market = MarketController.GetMarketAsync(serviceMarket).Result;
                     Utilities.ShowMarketToScreen(market);
+                }
+                else if (buyOperation)
+                { 
+                    // BOB do something! 
+                }
+                else if (sellOperation)
+                {
+                    // BOB do something! 
                 }
                 else
                 {
