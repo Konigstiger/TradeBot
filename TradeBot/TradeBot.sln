@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleRecognizers", "Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBotConsole", "TradeBotConsole\TradeBotConsole.csproj", "{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBot.Core", "TradeBot.Core\TradeBot.Core.csproj", "{A44E7563-EFE3-44E2-BA2D-CDFEC8D0D4DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6095B6FB-8113-46BC-9A20-213A1ADFD5F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A44E7563-EFE3-44E2-BA2D-CDFEC8D0D4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A44E7563-EFE3-44E2-BA2D-CDFEC8D0D4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A44E7563-EFE3-44E2-BA2D-CDFEC8D0D4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A44E7563-EFE3-44E2-BA2D-CDFEC8D0D4DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

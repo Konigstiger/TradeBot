@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TradeBot.Core\TradeBot.Core.csproj" />
     <ProjectReference Include="..\TradeBotAPI\TradeBotAPI.csproj" />
   </ItemGroup>
 
