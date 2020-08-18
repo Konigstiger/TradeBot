@@ -112,8 +112,12 @@ namespace TradeBotAPI.Services
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<Market> GetMarketAsync()
+        public async Task<Market> GetMarketAsync([FromBody] string countryCode)
         {
+            if (countryCode.Equals("")) {
+                throw new Exception("FOO");
+            }
+
             // TODO: ver alguna forma de que esto sea permanente, y se use el token que corresponda, bearer o refresh.
             BearerToken = await GenerateAccessToken();
 

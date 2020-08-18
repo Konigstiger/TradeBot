@@ -11,6 +11,7 @@ namespace TradeBot.Core.UseCases
         private readonly IStudentRepository _studentRepository;
         private readonly ICourseRepository _courseRepository;
         private readonly IAuthService _authService;
+
         public RequestCourseRegistrationInteractor(IAuthService authService, IStudentRepository studentRepository, ICourseRepository courseRepository)
         {
             _authService = authService;

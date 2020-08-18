@@ -12,6 +12,15 @@ namespace TradeBotAPI.Models
     /// </summary>
     public class Portfolio
     {
+        private readonly bool isEmpty;
+
+        // TODO: CREATE INTERFACE TO IMPLEMENT. SOMETHING WITH USEFUL THINGS.
+
+        public bool IsEmpty()
+        {
+            return (activos.Count == 0);
+        }
+
         // TODO: See what about different currencies. ARS, USD.
         public double Cash_USD { get; set; }
         public double Cash_ARS { get; set; }

@@ -24,7 +24,7 @@ namespace TradeBotAPITests
             var service = serviceProvider.GetRequiredService<IBrokerService>();
 
             // Act
-            var porty = service.GetPortfolioAsync();
+            var porty = service.Get();
 
             // Assert
             Assert.NotNull(porty.Result);

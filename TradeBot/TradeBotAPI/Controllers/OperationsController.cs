@@ -14,6 +14,14 @@ namespace TradeBotAPI.Controllers
     [ApiController]
     public class OperationsController : ControllerBase
     {
+        /*
+        GET: read existing data
+        POST: create new data
+        PUT: update existing data
+        PATCH: update a subset of existing data
+        DELETE: remove existing data         
+        */
+
         // TODO: just copypasted. Design the exposed actions.
         // maybe I will need to separate this controller in one to buy, and other to sell.
         // de todas formas, es mejor que esté todo en uno solo.

@@ -10,7 +10,7 @@ namespace TradeBotAPI.Services
     {
         public AccessTokenResponse BearerToken { get; set; }
 
-        public Task<Market> GetMarketAsync();
+        public Task<Market> GetMarketAsync(string countryCode);
 
         public Task<AccessTokenResponse> GenerateAccessToken();
 

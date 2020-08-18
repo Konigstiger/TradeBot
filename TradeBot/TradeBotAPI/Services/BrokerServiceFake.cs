@@ -42,7 +42,7 @@ namespace TradeBotAPI.Services.Fakes
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         // TODO: Add more possible responses.
-        public async Task<Portfolio> GetPortfolioAsync()
+        public async Task<Portfolio> Get()
         {
             // TODO: add more variety: use random values
             var result = new Portfolio();

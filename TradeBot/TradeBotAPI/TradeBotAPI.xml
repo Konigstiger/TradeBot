@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TradeBotAPI</name>
+    </assembly>
+    <members>
+        <member name="T:TradeBotAPI.Models.Address">
+            <summary>
+            Just a person.
+            </summary>
+        </member>
+        <member name="T:TradeBotAPI.Models.Broker">
+            <summary>
+            Represents an intermediary that executes buy and sell orders, among other tasks.
+            </summary>
+        </member>
+        <member name="T:TradeBotAPI.Models.Holding">
+            <summary>
+            Contains details about the stocks owned by the user. 
+            A holding is an executed buy operation.
+            </summary>
+        </member>
+        <member name="M:TradeBotAPI.Models.Holding.ToString">
+            <summary>
+            Returns a text representation of the object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TradeBotAPI.Models.Market">
+            <summary>
+            This class contains information about the available formal markets where stock trading is enabled
+            </summary>
+        </member>
+        <member name="T:TradeBotAPI.Models.Operation">
+            <summary>
+            Represents a buy or sale operation.
+            </summary>
+        </member>
+        <member name="P:TradeBotAPI.Models.Operation.Tax">
+            <summary>
+            The tax is the same everywhere (in a country)
+            </summary>
+        </member>
+        <member name="P:TradeBotAPI.Models.Operation.Commission">
+            <summary>
+            The commission depends on the Broker.
+            </summary>
+        </member>
+        <member name="T:TradeBotAPI.Models.Person">
+            <summary>
+            Just a person.
+            </summary>
+        </member>
+        <member name="T:TradeBotAPI.Models.Portfolio">
+            <summary>
+            Helps to admin the stocks holdings owned by the user.
+            </summary>
+        </member>
+        <member name="T:TradeBotAPI.Models.Stock">
+            <summary>
+            Represents a stock, an investment instrument.
+            Stocks represents the right to collect a part of the earnings of a Company.
+            </summary>
+        </member>
+        <member name="M:TradeBotAPI.Services.Bootstrapper.UseServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Implemented services:
+            <list type="bullet">
+                <item>BrokerService</item>
+                <item>MarketService</item></list>
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:TradeBotAPI.Services.Bootstrapper.UseFakeServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Faked services:
+            <list type="bullet">
+                <item>BrokerServiceFake</item>
+                <item>MarketServiceFake</item></list>
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:TradeBotAPI.ExtensionMethods.IntExtensions.ToInt(System.String)">
+            <summary>
+            Tries to convert the string to int. If it can't do it, will return 0 (valid int).
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TradeBotAPI.ExtensionMethods.IntExtensions.ToFloat(System.String)">
+            <summary>
+            Tries to convert the string to float. If it can't do it, will return 0 (valid float).
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

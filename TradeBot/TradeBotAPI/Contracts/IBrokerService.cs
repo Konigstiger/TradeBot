@@ -10,7 +10,7 @@ namespace TradeBotAPI.Services
     {
         public AccessTokenResponse BearerToken { get; set; }
 
-        public Task<Portfolio> GetPortfolioAsync();
+        public Task<Portfolio> Get();
 
         public Task<AccessTokenResponse> GenerateAccessToken();
 

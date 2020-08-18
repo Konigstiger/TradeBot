@@ -42,7 +42,7 @@ namespace TradeBotAPI.Services.Fakes
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<Market> GetMarketAsync()
+        public async Task<Market> GetMarketAsync([FromBody] string countryCode)
         {
             var result = new Market();
 

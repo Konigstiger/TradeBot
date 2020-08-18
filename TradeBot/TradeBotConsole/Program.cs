@@ -4,12 +4,13 @@ using TradeBotAPI.Services;
 using TradeBotAPI.Models;
 using TradeBotConsole.Colors;
 using TradeBotAPI.Controllers;
+using Microsoft.VisualStudio.Services.Common;
 
 namespace TradeBotConsole
 {
     class Program
     {
-        static void Main(string[] args)
+        static async System.Threading.Tasks.Task Main(string[] args)
         {
             EscapeSequencer.Install();
             EscapeSequencer.Bold = true; //set default bold to On. Actually this will use bright colors. Easier to read
@@ -64,18 +65,19 @@ namespace TradeBotConsole
                 }
 
                 var serviceProvider = services.BuildServiceProvider();
-                var servicePortfolio = serviceProvider.GetRequiredService<IBrokerService>();
-                var serviceMarket = serviceProvider.GetRequiredService<IMarketService>();
+                BrokerService servicePortfolio = (BrokerService) serviceProvider.GetRequiredService<IBrokerService>();
+                MarketService serviceMarket = (MarketService) serviceProvider.GetRequiredService<IMarketService>();
 
                 if (showPortfolio)
                 {
-                    var portfolio = PortfolioController.GetPortfolio(servicePortfolio).Result;
+                    var localPortfolioController = new PortfolioController(servicePortfolio);
+                    var portfolio = await localPortfolioController.Get();
                     Utilities.ShowPortfolioToScreen(portfolio.Value);
                 }
-                else if (showMarket) { 
-                    Utilities.ShowMarket("ar");
-
-                    var market = MarketController.GetMarketAsync(serviceMarket).Result;
+                else if (showMarket) 
+                { 
+                    var localMarketController = new MarketController(serviceMarket);
+                    var market = localMarketController.Get("ar").Result;
                     Utilities.ShowMarketToScreen(market);
                 }
                 else if (buyOperation)

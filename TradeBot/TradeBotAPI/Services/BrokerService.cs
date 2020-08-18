@@ -21,7 +21,7 @@ namespace TradeBotAPI.Services
         private const string urlPortfolio = baseUrl + "portafolio/argentina";
 
         // TODO: See if is better to use a HttpClientFactory instead. I think so.
-        private readonly HttpClient _client;
+        private  HttpClient _client;
 
         public BrokerService(HttpClient client)
         {
@@ -62,10 +62,11 @@ namespace TradeBotAPI.Services
             
             try
             {
-                HttpClient client = HeadersForAccessTokenGenerate();
+                //HttpClient client = HeadersForAccessTokenGenerate();
+                this._client = HeadersForAccessTokenGenerate();
                 string body = "grant_type=client_credentials";
-                client.BaseAddress = new Uri(urlToken);
-                var request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
+                this._client.BaseAddress = new Uri(urlToken);
+                var request = new HttpRequestMessage(HttpMethod.Post, this._client.BaseAddress);
                 request.Content = new StringContent(body,
                                                     Encoding.UTF8,
                                                     "application/x-www-form-urlencoded");
@@ -78,7 +79,7 @@ namespace TradeBotAPI.Services
                 };
 
                 request.Content = new FormUrlEncodedContent(postData);
-                HttpResponseMessage tokenResponse = client.PostAsync(urlToken, new FormUrlEncodedContent(postData)).Result;
+                HttpResponseMessage tokenResponse = this._client.PostAsync(urlToken, new FormUrlEncodedContent(postData)).Result;
 
                 token = await tokenResponse.Content.ReadAsAsync<AccessTokenResponse>(new[] { new JsonMediaTypeFormatter() });
 
@@ -94,7 +95,7 @@ namespace TradeBotAPI.Services
         }
 
 
-        public async Task<Portfolio> GetPortfolioAsync()
+        public async Task<Portfolio> Get()
         {
             // TODO: Aca tengo que validar el parametro pais. Pero es un metodo async.
             // lo correcto sería usar un validator. 

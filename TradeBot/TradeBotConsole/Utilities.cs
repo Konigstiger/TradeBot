@@ -55,14 +55,6 @@ namespace TradeBotConsole
             Ccw("Disconnected.", ConsoleColor.DarkRed, true);
         }
 
-        public static void ShowMarket(string marketName)
-        {
-            Ccw("Market: " + marketName, ConsoleColor.Yellow, true);
-
-            // TODO: here we invoke our web API.
-
-        }
-
         /// <summary>
         /// Introduction.
         /// </summary>
@@ -110,7 +102,7 @@ namespace TradeBotConsole
                 );
             CLine(w);
 
-            if (portfolio.activos != null)
+            if (portfolio?.activos != null)
             {
                 foreach (var item in portfolio.activos)
                 {
@@ -142,6 +134,7 @@ namespace TradeBotConsole
 
         public static void ShowMarketToScreen(Market market)
         {
+            Ccw("Market ", ConsoleColor.Yellow, true);
             int w = 118;
 
             CLine(w);
